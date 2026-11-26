@@ -543,65 +543,149 @@ nav a:hover {
   color: var(--light-blue);
 }
 
-/* PORTFOLIO */
+/* PORTAFOLIO PROFESIONAL */
+
+.portfolio-section {
+  max-width: 1300px;
+}
+
+.portfolio-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  background: linear-gradient(120deg, #101e34, #0a1423);
+  border-radius: 12px;
+}
+
+.portfolio-intro div {
+  display: grid;
+  gap: 5px;
+}
+
+.portfolio-intro strong {
+  font: 800 17px Manrope, sans-serif;
+}
+
+.portfolio-intro span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.portfolio-intro > a {
+  background: var(--blue);
+  color: white;
+  padding: 12px 17px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: .3s;
+}
+
+.portfolio-intro > a:hover {
+  background: var(--light-blue);
+  transform: translateY(-2px);
+}
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .portfolio-card {
+  min-width: 0;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 13px;
   overflow: hidden;
-  background: var(--panel);
+  background: linear-gradient(145deg, #101b2e, #0b1423);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
 }
 
-.portfolio-preview {
-  height: 220px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: linear-gradient(140deg, #193e65, #0a1425);
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--blue);
+  box-shadow: 0 15px 40px rgba(0, 100, 255, .13);
 }
 
-.preview-two {
-  background: linear-gradient(140deg, #3b285a, #101528);
-}
-
-.preview-three {
-  background: linear-gradient(140deg, #12505a, #0a1425);
-}
-
-.portfolio-preview span {
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #b7d9ff;
-}
-
-.portfolio-preview strong {
-  font: 800 26px/1.2 Manrope, sans-serif;
-}
-
-.portfolio-card h3 {
-  font: 700 15px Manrope, sans-serif;
-  padding: 20px 20px 7px;
-}
-
-.portfolio-card p {
-  font-size: 11px;
-  color: var(--muted);
-  padding: 0 20px 12px;
-}
-
-.demo-label {
+.portfolio-image-link {
+  position: relative;
   display: block;
-  font-size: 8px;
+  background: #070d18;
+  overflow: hidden;
+}
+
+.portfolio-image-link img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  transition: transform .4s;
+}
+
+.portfolio-card:hover .portfolio-image-link img {
+  transform: scale(1.025);
+}
+
+.image-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(8, 123, 255, .92);
+  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.portfolio-info {
+  padding: 19px;
+}
+
+.portfolio-info .demo-label {
+  display: block;
   color: var(--light-blue);
+  font-size: 8px;
   letter-spacing: 1.5px;
-  padding: 0 20px 20px;
+  padding: 0;
+  margin-bottom: 9px;
+}
+
+.portfolio-info h3 {
+  font: 700 16px Manrope, sans-serif;
+  margin-bottom: 8px;
+}
+
+.portfolio-info p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.portfolio-bottom {
+  text-align: center;
+  margin-top: 45px;
+  padding: 35px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(140deg, #101f35, #0b1423);
+}
+
+.portfolio-bottom h3 {
+  font: 800 23px Manrope, sans-serif;
+  margin-bottom: 12px;
+}
+
+.portfolio-bottom p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 22px;
+  line-height: 1.7;
 }
 
 /* CONTACT */
@@ -718,6 +802,8 @@ nav a:hover {
   border-top: 1px solid var(--border);
 }
 
+/* WHATSAPP */
+
 .floating-whatsapp {
   position: fixed;
   right: 22px;
@@ -754,9 +840,12 @@ nav a:hover {
   }
 
   .pricing-grid,
-  .service-grid,
-  .portfolio-grid {
+  .service-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .business-section,
@@ -850,9 +939,39 @@ nav a:hover {
   }
 
   .service-grid,
-  .pricing-grid,
-  .portfolio-grid {
+  .pricing-grid {
     grid-template-columns: 1fr;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .portfolio-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .portfolio-info {
+    padding: 12px;
+  }
+
+  .portfolio-info h3 {
+    font-size: 12px;
+  }
+
+  .portfolio-info p {
+    font-size: 10px;
+  }
+
+  .portfolio-info .demo-label {
+    font-size: 7px;
+    letter-spacing: .8px;
+  }
+
+  .portfolio-bottom h3 {
+    font-size: 19px;
   }
 
   .business-copy h2,
